@@ -14,18 +14,19 @@
             entityID: id
         })
         Messages.sendMessage("entity_channel", message )
-        var dimensions = {x: 3, y: 3, z: 3};
+        var dimensions = {x: 2, y: 2, z: 2};
 
         Entities.addEntity({
             type: "Zone",
             dimensions: dimensions,
             position: position,
-            script: 'http://localhost:3001/zone.js?v=110'
+            script: 'http://localhost:3001/zone.js?v=113',
+            parentID: id
         });
     };
 
     var touchPosition;
-    var entity
+    var entity;
     var MESSAGE_CHANNEL = "vest_touch";
     Messages.subscribe(MESSAGE_CHANNEL);
     function handleMessages(channel, message, sender){
